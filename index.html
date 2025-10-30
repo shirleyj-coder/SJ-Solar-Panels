@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar Panel Savings Estimator</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f9f8;
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      color: #00695c;
+    }
+    .container, .contact {
+      background: white;
+      border-radius: 12px;
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    input, button, textarea {
+      width: 80%;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #00796b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004d40;
+    }
+    #result {
+      margin-top: 1.5rem;
+      font-weight: bold;
+      color: #004d40;
+    }
+    footer {
+      margin-top: 3rem;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Solar Panel Savings Estimator</h1>
+  <p>Estimate your potential monthly savings by switching to solar.</p>
+  <div class="container">
+    <label for="usage">Enter your average monthly electricity usage (kWh):</label><br>
+    <input type="number" id="usage" placeholder="e.g., 600" min="0"><br>
+    <button onclick="calculateSavings()">Estimate Savings</button>
+    <p id="result"></p>
+  </div>
+
+  <div class="contact">
+    <h2>Contact Us for a Free Quote</h2>
+    <form action="https://formspree.io/f/yourformid" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required><br>
+      <input type="email" name="email" placeholder="Your Email" required><br>
+      <textarea name="message" rows="4" placeholder="Tell us about your solar goals..." required></textarea><br>
+      <button type="submit">Send Message</button>
+    </form>
+    <p style="font-size: 0.85rem; color:#555;">We'll get back to you within 24 hours.</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Stimpson Dillon Energy Solutions | Built with ❤️ and Solar Power</p>
+  </footer>
+
+  <script>
+    function calculateSavings() {
+      const usage = parseFloat(document.getElementById('usage').value);
+      if (isNaN(usage) || usage <= 0) {
+        document.getElementById('result').textContent = '⚠️ Please enter a valid number.';
+        return;
+      }
+      const ratePerKWh = 0.25; // average rate per kWh in USD
+      const solarDiscount = 0.6; // assume 40% savings with solar
+      const monthlySavings = usage * ratePerKWh * solarDiscount;
+      document.getElementById('result').textContent = `You could save approximately $${monthlySavings.toFixed(2)} per month with solar.`;
+    }
+  </script>
+</body>
+</html>
