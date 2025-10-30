@@ -6,7 +6,6 @@
   <title>Solar Panel Savings Estimator</title>
   <link rel="stylesheet" href="style.css">
   <style>
-<style>
   body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background: url('https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
@@ -51,16 +50,51 @@
     <p id="result"></p>
   </div>
 
-  <div class="contact">
-    <h2>Contact Us for a Free Quote</h2>
-    <form action="https://formspree.io/f/yourformid" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required><br>
-      <input type="email" name="email" placeholder="Your Email" required><br>
-      <textarea name="message" rows="4" placeholder="Tell us about your solar goals..." required></textarea><br>
-      <button type="submit">Send Message</button>
-    </form>
-    <p style="font-size: 0.85rem; color:#555;">We'll get back to you within 24 hours.</p>
-  </div>
+ <div class="contact">
+  <h2>Contact Us for a Free Quote</h2>
+
+  <form action="https://formspree.io/f/mkgpvyed" method="POST" id="contact-form">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="email" name="email" placeholder="Your Email" required><br>
+    <textarea name="message" rows="4" placeholder="Tell us about your solar goals..." required></textarea><br>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <!-- Success / Error message area -->
+  <p id="form-message" style="color: lightgreen; margin-top: 1rem; opacity: 0; transition: opacity 0.5s ease;"></p>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const msg = document.getElementById('form-message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.style.opacity = 0;
+      msg.style.color = 'lightgreen';
+      msg.textContent = 'Sending message...';
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        msg.textContent = '✅ Message sent successfully! Thank you for contacting Shirley Jones Energy Solutions.';
+        form.reset();
+      } else {
+        msg.style.color = 'orange';
+        msg.textContent = '⚠️ There was a problem sending your message. Please try again.';
+      }
+      msg.style.opacity = 1; // fade-in effect
+    });
+  </script>
+
+  <p style="font-size: 0.85rem; color:#ccc; margin-top:1rem;">
+    We'll get back to you within 24 hours. You can also reach us directly at 
+    <a href="mailto:shirleyj@lytegen.com" style="color:#0aa37f; text-decoration:none;">
+      shirleyj@lytegen.com
+    </a>.
+  </p>
+</div>
 
   <footer>
     <p>&copy; 2025 Stimpson Dillon Energy Solutions | Built with ❤️ and Solar Power</p>
