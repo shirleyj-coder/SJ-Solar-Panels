@@ -6,57 +6,44 @@
   <title>Solar Panel Savings Estimator</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f9f8;
-      color: #333;
-      text-align: center;
-      margin: 0;
-      padding: 2rem;
-    }
-    h1 {
-      color: #00695c;
-    }
-    .container, .contact {
-      background: white;
-      border-radius: 12px;
-      max-width: 500px;
-      margin: 2rem auto;
-      padding: 2rem;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    input, button, textarea {
-      width: 80%;
-      padding: 0.8rem;
-      margin-top: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    button {
-      background-color: #00796b;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #004d40;
-    }
-    #result {
-      margin-top: 1.5rem;
-      font-weight: bold;
-      color: #004d40;
-    }
-    footer {
-      margin-top: 3rem;
-      color: #777;
-      font-size: 0.9rem;
-    }
+<style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: url('https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 3rem 1rem;
+  }
+  h1 { font-size: 2.2rem; margin: 0 0 1rem; }
+  p  { margin: 0.25rem 0 1rem; }
+  .container, .contact {
+    background: rgba(0,0,0,0.6);
+    border-radius: 12px;
+    max-width: 640px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  }
+  input, button, textarea {
+    width: 90%;
+    padding: 0.8rem;
+    margin-top: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  input, textarea { background: #fff; color: #000; }
+  button { background: #0aa37f; color: #fff; cursor: pointer; }
+  button:hover { background: #078866; }
+  footer { margin-top: 2rem; color: #eee; font-size: 0.9rem; }
+  label { display:block; margin-top: 0.5rem; font-weight: 600; }
   </style>
 </head>
 <body>
-  <h1>Solar Panel Savings Estimator</h1>
-  <p>Estimate your potential monthly savings by switching to solar.</p>
+  <h1>Solar Panel by Shirley Jones</h1>
+  <p>&copy; 2025 Shirley Jones Energy Solutions | Built with ❤️ and Solar Power</p>
   <div class="container">
     <label for="usage">Enter your average monthly electricity usage (kWh):</label><br>
     <input type="number" id="usage" placeholder="e.g., 600" min="0"><br>
